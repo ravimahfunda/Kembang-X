@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php include('head.php');?>
+</head>
+<body class="grey lighten-4">
+<?php include('nav-dash.php'); ?>
+
+<div class="">
+    <div class="section">
+        <div class="row">
+            <div class="col l8 s12 card offset-l3" style="padding: 20px!important;">
+                <h5>My Reviews</h5>
+                <ul class="collapsible" data-collapsible="accordion">
+                    <?php foreach ($reviews as $review){?>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">account_circle</i><b><?php echo $review->AUTHOR;?></b> leaves notes at <b><?php echo $review->TITLE;?></b></div>
+                        <div class="collapsible-body">
+                            <div>
+                                <a class=" right btn teal waves-effect" href="<?php echo site_url('places/detail/'.$review->ID_PLACE);?>"><i class="material-icons">more_vert</i></a>
+                            </div>
+                            <br/>
+                            <br/>
+                            <span>
+                                <?php echo $review->NOTES;?>
+                            </span>
+                        </div>
+                    </li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    @media screen and (min-width: 601px) {
+        .side-form{
+            transform: translate(20px,0);
+        }
+    }
+</style>
+</body>
+</html>
