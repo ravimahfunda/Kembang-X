@@ -62,7 +62,7 @@ class Places extends CI_Controller {
             );
 
             $this->placemodel->insert($data);
-            redirect(site_url('homepage'));
+            redirect(base_url());
         }
     }
 

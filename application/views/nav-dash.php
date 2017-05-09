@@ -1,7 +1,7 @@
 <div class="navbar-fixed">
     <nav class="nav-extended white z-depth-2">
         <div class="nav-wrapper container">
-            <a id="logo-container" href="<?php echo site_url('homepage');?>" class="brand-logo center" style="padding-top: 10px;"><img src="<?php echo base_url();?>/assets/images/logo2.png" /></a>
+            <a id="logo-container" href="<?php echo base_url();?>" class="brand-logo center" style="padding-top: 10px;"><img src="<?php echo base_url();?>/assets/images/logo2.png" /></a>
             <a href="#" data-activates="mobile-demo" class="button-collapse grey-text"><i class="material-icons">menu</i></a>
             <a class="btn-floating btn-large waves-effect waves-light red  halfway-fab hide-on-med-and-down z-depth-2 hoverable" href="<?php echo site_url('places');?>">
                 <i class="material-icons s0">add</i>

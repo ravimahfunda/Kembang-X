@@ -56,10 +56,13 @@ class Users extends CI_Controller {
                 $data['lplaces'] = $this->placemodel->getAll();
                 $data['lreviews'] = $this->reviewplacemodel->getAll();
                 $data['lreports']= $this->db->query("select p.ID_PLACE, TITLE, r.AUTHOR, r.DESCRIPTION from REPORTS r, PLACES p where r.ID_PLACE=p.ID_PLACE order by r.CREATED_AT DESC")->result();
-                $data['lpromos']= $this->db->query("select r.ID_PROMO, p.ID_PLACE, p.TITLE, r.COST ,r.UNTIL, r.QUOTA, r.HEADLINE, r.DESCRIPTION from PROMOS r, PLACES p where r.ID_PLACE=p.ID_PLACE and QUOTA > 0 and UNTIL >= SYSDATE")->result();
-                $data['lmclaims']= $this->db->query("select p.TITLE,r.UNTIL, r.HEADLINE, c.U_CODE from CLAIMS c, PROMOS r, PLACES p where c.ID_PROMO=r.ID_PROMO and r.ID_PLACE=p.ID_PLACE and UNTIL >= SYSDATE")->result();
-                $data['lmrecs']= $this->db->query("select c.ID_CLAIM,c.STATUS,c.USERNAME from CLAIMS c, PROMOS r, PLACES p where c.ID_PROMO=r.ID_PROMO and r.ID_PLACE=p.ID_PLACE and UNTIL >= SYSDATE and p.AUTHOR='$username'")->result();
             }
+
+            //berubah
+            $data['lpromos']= $this->db->query("select r.ID_PROMO, p.ID_PLACE, p.TITLE, r.COST ,r.UNTIL, r.QUOTA, r.HEADLINE, r.DESCRIPTION from PROMOS r, PLACES p where r.ID_PLACE=p.ID_PLACE and QUOTA > 0 and UNTIL >= SYSDATE")->result();
+            $data['lmclaims']= $this->db->query("select p.TITLE,r.UNTIL, r.HEADLINE, c.U_CODE from CLAIMS c, PROMOS r, PLACES p where c.ID_PROMO=r.ID_PROMO and r.ID_PLACE=p.ID_PLACE and UNTIL >= SYSDATE")->result();
+            $data['lmrecs']= $this->db->query("select c.ID_CLAIM,c.STATUS,c.USERNAME from CLAIMS c, PROMOS r, PLACES p where c.ID_PROMO=r.ID_PROMO and r.ID_PLACE=p.ID_PLACE and UNTIL >= SYSDATE and p.AUTHOR='$username'")->result();
+
             $data['posts'] = $this->placemodel->getOf($username);
             $data['reviews'] = $this->reviewplacemodel->getOf($username);
             $this->load->view('dashboard-'.$tab,$data);
@@ -117,7 +120,7 @@ class Users extends CI_Controller {
             );
 //
             $this->usermodel->insert($data);
-            redirect(site_url('homepage'));
+            redirect(base_url());
         }
     }
     
@@ -212,7 +215,7 @@ class Users extends CI_Controller {
 //            );
 //
 //            $this->reviewplacemodel->insert($data);
-//            redirect(site_url('homepage'));
+//            redirect(base_url());
 //        }
     }
 

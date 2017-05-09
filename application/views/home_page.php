@@ -14,22 +14,30 @@
 
             <div class="col s12 card">
                 <div class="slider">
+
+                    <a href="<?php echo site_url('users/dashboard/0')?>">
                     <ul class="slides hoverable">
-                        <li>
-                            <img src="<?php echo base_url()."/uploads/ice_cream.jpg";?>"> <!-- random image -->
-                            <div class="caption left-align">
-                                <h3>Buy 1 get 1</h3>
-                                <h5 class="light grey-text text-lighten-3">Ice Cream Sundae in Monday</h5>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="<?php echo base_url()."/uploads/villa.jpg";?>"> <!-- random image -->
-                            <div class="caption left-align">
-                                <h3>Diskon 20%</h3>
-                                <h5 class="light grey-text text-lighten-3">Villa Permata Buana</h5>
-                            </div>
-                        </li>
+                            <li>
+                                <img src="<?php echo base_url()."/assets/images/bandung.jpg";?>"> <!-- random image -->
+                                <div class="caption left-align">
+                                    <h3>Special Promo</h3>
+                                    <h5 class="light grey-text text-lighten-3">Special promo just for you..</h5>
+                                </div>
+                            </li>
+
+
+                        <?php foreach ($lpromos as $promo){?>
+                            <li>
+                                <img src="<?php echo base_url()."/uploads/".$promo->IMAGE;?>"> <!-- random image -->
+                                <div class="caption left-align">
+                                    <h3><?php echo $promo->HEADLINE;?></h3>
+                                    <h5 class="light grey-text text-lighten-3">In <?php echo $promo->TITLE." until ".$promo->UNTIL;?></h5>
+                                </div>
+                            </li>
+                        <?php }?>
                     </ul>
+                    </a>
+
                 </div>
             </div>
             <script>

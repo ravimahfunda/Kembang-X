@@ -8,7 +8,7 @@
 <div class="navbar-fixed">
     <nav class="white" role="navigation">
         <div class="nav-wrapper container">
-          <a id="logo-container" href="<?php echo site_url('homepage')?>" class="brand-logo" style="padding-top: 10px;"><img src="<?php echo base_url();?>/assets/images/logo2.png" /></a>
+          <a id="logo-container" href="<?php echo base_url()?>" class="brand-logo" style="padding-top: 10px;"><img src="<?php echo base_url();?>/assets/images/logo2.png" /></a>
           <ul class="right hide-on-med-and-down">
               <?php if(isset($user)){?>
                   <li>
